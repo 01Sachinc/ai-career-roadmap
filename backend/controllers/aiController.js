@@ -1,4 +1,4 @@
-const axios = require('axios');
+const { HfInference } = require('@huggingface/inference');
 const Roadmap = require('../models/Roadmap');
 
 const generateRoadmap = async (req, res) => {
@@ -26,17 +26,13 @@ The 'roadmap' should be detailed enough for an SSLC/PUC student to follow from n
 Return only valid JSON.`;
 
   try {
-    const response = await axios.post(
-      'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2',
-      { inputs: prompt },
-      { headers: { Authorization: `Bearer ${process.env.HF_API_KEY}` } }
-    );
+    const hf = new HfInference(process.env.HF_API_KEY);
+    const response = await hf.chatCompletion({
+      model: 'Qwen/Qwen2.5-7B-Instruct',
+      messages: [{ role: 'user', content: prompt }]
+    });
 
-    let aiContent = response.data[0].generated_text;
-    if (aiContent.includes(prompt)) {
-      aiContent = aiContent.split(prompt)[1].trim();
-    }
-
+    let aiContent = response.choices[0].message.content;
     const jsonMatch = aiContent.match(/\[[\s\S]*\]|\{[\s\S]*\}/);
     const result = JSON.parse(jsonMatch ? jsonMatch[0] : aiContent);
 
