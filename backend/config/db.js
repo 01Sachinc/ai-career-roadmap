@@ -1,14 +1,12 @@
 const { Sequelize } = require('sequelize');
-const fs = require('fs');
-const path = require('path');
 
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
   dialect: 'postgres',
   logging: false,
   dialectOptions: {
     ssl: {
-      rejectUnauthorized: true,
-      ca: fs.readFileSync(path.join(__dirname, '../ca.pem')).toString(),
+      require: true,
+      rejectUnauthorized: false
     }
   }
 });
@@ -16,10 +14,10 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 const connectDB = async () => {
   try {
     await sequelize.authenticate();
-    console.log('PostgreSQL Connected (Aiven Cloud)');
+    console.log('PostgreSQL Connected (Aiven Cloud - SSL Enabled)');
     await sequelize.sync({ alter: true });
   } catch (error) {
-    console.error('Unable to connect to PostgreSQL:', error.message);
+    console.error('PostgreSQL Connection Error:', error.message);
   }
 };
 
