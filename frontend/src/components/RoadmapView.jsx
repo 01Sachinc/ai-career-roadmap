@@ -8,7 +8,7 @@ const RoadmapView = ({ careerData }) => {
   return (
     <div className="mt-12 space-y-12 max-w-4xl mx-auto">
       <div className="text-center">
-        <h2 className="text-3xl font-extrabold text-slate-900 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 inline-block mb-2">
+        <h2 className="text-3xl font-extrabold text-blue-600 inline-block mb-2">
           {careerData.career}
         </h2>
         <p className="text-slate-600 max-w-2xl mx-auto">{careerData.reason}</p>

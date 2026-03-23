@@ -8,9 +8,9 @@ const Header = () => {
   const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   return (
-    <nav className="glass sticky top-4 z-50 max-w-6xl mx-auto rounded-2xl px-6 py-4 flex items-center justify-between mb-12">
+    <nav className="bg-white border border-slate-200 shadow-sm sticky top-4 z-50 max-w-6xl mx-auto rounded-2xl px-6 py-4 flex items-center justify-between mb-12">
       <div className="flex items-center gap-2">
-        <div className="w-10 h-10 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
+        <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-sm">
           A
         </div>
         <div>

@@ -131,7 +131,7 @@ const StudentForm = ({ onGenerate }) => {
         <button 
           disabled={loading}
           className={`w-full py-4 rounded-xl flex items-center justify-center gap-2 font-bold text-lg transition-all ${
-            loading ? 'bg-slate-200 text-slate-500' : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg hover:shadow-blue-500/25 active:scale-[0.98]'
+            loading ? 'bg-slate-200 text-slate-500' : 'bg-blue-600 text-white shadow-sm hover:bg-blue-700 active:scale-[0.98]'
           }`}
         >
           {loading ? (

@@ -59,7 +59,7 @@ function App() {
               animate={{ y: 0, opacity: 1 }}
               className="text-4xl md:text-6xl font-black text-slate-900 leading-tight mb-6"
             >
-              Find Your <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">Dream Career</span> <br /> 
+              Find Your <span className="text-blue-600">Dream Career</span> <br /> 
               With AI-Powered Logic.
             </motion.h1>
             <p className="text-slate-500 text-lg max-w-2xl mx-auto mb-12">
@@ -144,7 +144,7 @@ function App() {
         )}
       </main>
 
-      <footer className="text-center py-12 border-t border-slate-200 mt-12 bg-white/30 backdrop-blur-sm -mx-8">
+      <footer className="text-center py-12 border-t border-slate-200 mt-12 bg-white -mx-8">
         <p className="text-sm text-slate-400">© 2026 AI CareerSync. Built for future leaders.</p>
       </footer>
     </div>
