@@ -2,50 +2,58 @@
 
 An AI-powered platform to help **SSLC (10th)** and **PUC (12th)** students navigate their career paths with precision.
 
+## 📸 Preview
+
+![App Preview](./screenshots/preview.png)
+
+---
+
 ## ✨ Features
 - **Student Profile Analysis**: Input Class, Interests, Skills, and Marks.
 - **JWT Authentication**: Secure Signup/Login to save and track your roadmaps.
-- **AI Career Suggestions**: 3 best-fit career options with detailed reasoning.
+- **AI Career Suggestions**: 3 best-fit career options with detailed reasoning (powered by Qwen AI).
 - **Interactive Roadmap**: Step-by-step guide with Courses, Skills, Timeline, and Exams.
 - **Skill Gap Analysis**: Identify missing skills and how to bridge them.
-- **Premium UI**: Modern, glassmorphism design, mobile responsive.
+- **History Dashboard**: View all your previously generated roadmaps.
+- **Clean & Professional UI**: Minimalist, enterprise-grade design, mobile responsive.
 
 ---
 
 ## 🛠 Tech Stack
 - **Frontend**: React (Vite), Tailwind CSS, Framer Motion, Lucide React.
-- **Backend**: Node.js, Express.js, Sequelize (MySQL).
-- **Database**: MySQL (Railway).
+- **Backend**: Node.js, Express.js, Sequelize (PostgreSQL).
+- **Database**: PostgreSQL (Aiven Cloud) with SSL.
+- **AI**: HuggingFace Inference SDK (`Qwen/Qwen2.5-7B-Instruct`).
+- **Auth**: JWT (JSON Web Tokens) with bcrypt.
 
 ---
 
-## 🚀 Deployment Steps
+## ⚙️ Environment Variables
 
-### Frontend (Vercel)
-1. Push the `frontend` folder to GitHub.
-2. Link your repo to [Vercel](https://vercel.com).
-3. Set the Root Directory to `frontend`.
-4. Add Environment Variable: `VITE_API_URL=https://your-backend-url.com/api`.
-
-### Backend (Render)
-1. Push the `backend` folder to GitHub (or use a monorepo).
-2. Connect to [Render](https://render.com) as a Web Service.
-3. Set the Build Command: `npm install`.
-4. Set the Start Command: `node server.js`.
-5. Add Environment Variables:
-   - `MONGODB_URI`: Your MongoDB Atlas URL.
-   - `HF_API_KEY`: Your HuggingFace API Key.
+Create a `backend/.env` file:
+```env
+DATABASE_URL=postgres://avnadmin:<password>@pg-xxxxx.aivencloud.com:17873/defaultdb
+PORT=5000
+HF_API_KEY=your_huggingface_api_key
+JWT_SECRET=your_jwt_secret
+```
 
 ---
 
-## 📈 GitHub Push Steps
+## 🚀 Running Locally
+
+### Backend
 ```bash
-git init
-git add .
-git commit -m "Initial commit: AI Career Roadmap Generator"
-git branch -M main
-git remote add origin your-github-repo-url
-git push -u origin main
+cd backend
+npm install
+node server.js
+```
+
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
 ---
